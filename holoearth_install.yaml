@@ -12,7 +12,7 @@ script:
     working_dir: $GAMEDIR/
 
   files:
-    - holoearth_installer_file: "N/A:Select HoloearthSetup.exe"
+    - holoearth_installer_file: "https://cdn.holoearth.com/launcher/v1.4.0/1d466f71-79a7-46f2-a702-48bd5b5f4577/HoloearthSetup.exe"
     - firefox_installer_file: "N/A:Select firefox installer file"
 
   installer:
