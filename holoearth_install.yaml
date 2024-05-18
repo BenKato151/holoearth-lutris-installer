@@ -1,0 +1,72 @@
+name: Holoearth Beta
+game_slug: holoearth-beta
+version: holoearth-installer
+slug: holoearth-beta
+runner: wine
+
+script:
+  game:
+    exe: $GAMEDIR/.wine/drive_c/Program Files/COVER corp/Holoearth Launcher/Launcher.exe
+    arch: win64
+    prefix: $GAMEDIR/.wine
+    working_dir: $GAMEDIR/
+
+  files:
+    - holoearth_installer_file: "N/A:Select HoloearthSetup.exe"
+    - firefox_installer_file: "N/A:Select firefox installer file"
+
+  installer:
+    - execute:
+        description: "Create Temp directory to prevent Holoearth from crashing"
+        command: mkdir -p $GAMEDIR/.wine/drive_c/users/$(whoami)/AppData/Local/Temp
+
+    - write_file:
+        file: $GAMEDIR/set_default_browser.reg
+        description: "Write Registry file to set Firefox as the default browser for HTTP and HTTPS"
+        content: |
+          Windows Registry Editor Version 5.00
+
+          [HKEY_CLASSES_ROOT\https\shell\open\command]
+          @="\"C:\\Program Files\\Mozilla Firefox\\firefox.exe\" \"%1\""
+
+          [HKEY_CLASSES_ROOT\http\shell\open\command]
+          @="\"C:\\Program Files\\Mozilla Firefox\\firefox.exe\" \"%1\""
+
+    - task:
+        name: set_regedit_file
+        description: "Set Firefox as the default browser for HTTP and HTTPS"
+        filename: $GAMEDIR/set_default_browser.reg
+        prefix: $GAMEDIR/.wine
+
+    - write_file:
+        file: $GAMEDIR/window_decoration.reg
+        description: "Write Registry file to disable window decoration"
+        content: |
+          Windows Registry Editor Version 5.00
+
+          [HKEY_CURRENT_USER\Software\Wine\X11 Driver]
+          "Decorated"="N"
+
+    - task:
+        name: set_regedit_file
+        description: "Disable window decoration in winecfg"
+        filename: $GAMEDIR/window_decoration.reg
+        prefix: $GAMEDIR/.wine
+
+    - task:
+        name: winetricks
+        description: "Install japanese fonts with Winetricks"
+        prefix: $GAMEDIR/.wine
+        app: cjkfonts fakejapanese
+
+    - task:
+        name: wineexec
+        description: "Install Firefox"
+        executable: firefox_installer_file
+        prefix: $GAMEDIR/.wine
+
+    - task:
+        name: wineexec
+        description: "Run the Holoearth installer"
+        executable: holoearth_installer_file
+        prefix: $GAMEDIR/.wine
