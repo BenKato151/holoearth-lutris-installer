@@ -57,7 +57,7 @@ script:
         name: winetricks
         description: "Install japanese fonts with Winetricks"
         prefix: $GAMEDIR/.wine
-        app: cjkfonts fakejapanese
+        app: cjkfonts fakejapanese corefonts
 
     - task:
         name: wineexec
