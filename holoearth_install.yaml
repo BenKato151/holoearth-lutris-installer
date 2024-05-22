@@ -13,10 +13,10 @@ script:
 
   files:
     - holoearth_installer_file: "https://cdn.holoearth.com/launcher/v1.4.0/1d466f71-79a7-46f2-a702-48bd5b5f4577/HoloearthSetup.exe"
-    - firefox_installer_file: "N/A:Select firefox installer file"
+    - firefox_installer_file: "https://download.mozilla.org/?product=firefox-esr-latest-ssl&os=win64&lang=en-US"
+    - ucrtbase_dll: "N/A:Download that dll from \"https://de.dll-files.com/download/f0da14e390f0ccb58eaad34d9b309e4b/ucrtbase.dll.html?c=ZlFOUUpYR1RYVCtUNEljdWxJUUpGZz09\""
 
   installer:
-
     - write_file:
         file: $GAMEDIR/set_default_browser.reg
         description: "Write Registry file to set Firefox as the default browser for HTTP and HTTPS"
@@ -58,9 +58,17 @@ script:
 
     - task:
         name: wineexec
-        description: "Install Firefox"
+        description: "Install Firefox (After the installation is completed, run it for the first time and let it crash, it has to crash once for it to work sadly)"
         executable: firefox_installer_file
         prefix: $GAMEDIR/.wine
+
+    - extract:
+        file: $ucrtbase_dll
+        dst: $GAMEDIR/ucrtbase/
+
+    - copy:
+        src: $GAMEDIR/ucrtbase/ucrtbase.dll
+        dst: $GAMEDIR/.wine/drive_c/Program Files/Mozilla Firefox/
 
     - execute:
         description: "Create Temp directory to prevent Holoearth from crashing"
@@ -68,6 +76,9 @@ script:
 
     - task:
         name: wineexec
-        description: "Run the Holoearth installer"
+        description: "Run the Holoearth installer (After installation, don't start holoearth directly. Uncheck the box and let the installer finish. Then you can run it)"
         executable: holoearth_installer_file
         prefix: $GAMEDIR/.wine
+  wine:
+    overrides:
+      ucrtbase.dll: n,b
