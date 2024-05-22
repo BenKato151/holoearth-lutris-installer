@@ -16,9 +16,6 @@ script:
     - firefox_installer_file: "N/A:Select firefox installer file"
 
   installer:
-    - execute:
-        description: "Create Temp directory to prevent Holoearth from crashing"
-        command: mkdir -p $GAMEDIR/.wine/drive_c/users/$(whoami)/AppData/Local/Temp
 
     - write_file:
         file: $GAMEDIR/set_default_browser.reg
@@ -64,6 +61,10 @@ script:
         description: "Install Firefox"
         executable: firefox_installer_file
         prefix: $GAMEDIR/.wine
+
+    - execute:
+        description: "Create Temp directory to prevent Holoearth from crashing"
+        command: mkdir -p $GAMEDIR/.wine/drive_c/users/$(whoami)/AppData/Local/Temp
 
     - task:
         name: wineexec
