@@ -13,7 +13,9 @@ script:
 
   files:
     - holoearth_installer_file: "https://cdn.holoearth.com/launcher/v1.4.0/1d466f71-79a7-46f2-a702-48bd5b5f4577/HoloearthSetup.exe"
-    - firefox_installer_file: "https://download.mozilla.org/?product=firefox-esr-latest-ssl&os=win64&lang=en-US"
+    - firefox_installer_file:
+        url: "https://download.mozilla.org/?product=firefox-esr-latest-ssl&os=win64&lang=en-US"
+        filename: firefox_esr_installer.exe
     - ucrtbase_dll: "N/A:Download that dll from \"https://de.dll-files.com/download/f0da14e390f0ccb58eaad34d9b309e4b/ucrtbase.dll.html?c=ZlFOUUpYR1RYVCtUNEljdWxJUUpGZz09\""
 
   installer:
