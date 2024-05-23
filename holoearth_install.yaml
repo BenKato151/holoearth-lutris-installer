@@ -52,9 +52,9 @@ script:
 
     - task:
         name: winetricks
-        description: "Install japanese fonts with Winetricks"
+        description: "Install japanese fonts, vkd3d and dxvk with Winetricks"
         prefix: $GAMEDIR/.wine
-        app: cjkfonts fakejapanese corefonts
+        app: cjkfonts fakejapanese corefonts vkd3d dxvk1103
 
     - task:
         name: wineexec
@@ -79,6 +79,7 @@ script:
         description: "Run the Holoearth installer (After installation, don't start holoearth directly. Uncheck the box and let the installer finish. Then you can run it)"
         executable: holoearth_installer_file
         prefix: $GAMEDIR/.wine
+
   wine:
     overrides:
       ucrtbase.dll: n,b
