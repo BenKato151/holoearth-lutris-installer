@@ -15,7 +15,10 @@ Here are some points that I still struggle with:
 	- Even with cjkfonts and fakejapanese, blank squares will show up during the installer process
 - Holoearth
 	- performance is not great and could also crash randomly
-	- find a way to enable english from a config file or something like that maybe? 
+	- english at boot: Success, but I am not really happy that I had to edit hex values for it xD If someone finds a better way to do that, pls let me know! :)
 - Documentation
 	- I plan to include a tutorial on how to navigate holoearth installation and first launch until the settings... maybe? 
 
+
+Some of the steps that I have written in here, do come from [this reddit comment](https://www.reddit.com/r/Hololive/comments/14rznad/comment/jqwtwm1/) a few months ago, where we did some first steps into getting holoearth working on linux.
+Since the newest update, I got back into it and wanted to automate the installation process a bit xD
