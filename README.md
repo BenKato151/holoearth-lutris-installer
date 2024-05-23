@@ -1,4 +1,12 @@
 # Holoearth Beta lutris installer
+This lutris installer file is for Holoearth beta, which is developed by COVER corp and provides a platform for all the 
+Hololive fans. With this script, you can run Holoearth beta under linux using the wine manager lutris.
+
+
+This lutris installer is the first one that I wrote, so please let me know any improvements. 
+
+
+Here are some points that I still struggle with:
 
 - Firefox
 	- Using firefox-esr and [placing ucrtbase.dll into it's installation directory with a wine override](https://appdb.winehq.org/objectManager.php?sClass=version&iId=41500#testdata), it won't crash anymore.
