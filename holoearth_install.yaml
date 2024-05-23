@@ -20,7 +20,7 @@ script:
 
   installer:
     - write_file:
-        file: $GAMEDIR/set_default_browser.reg
+        file: $GAMEDIR/regedit_files/set_default_browser.reg
         description: "Write Registry file to set Firefox as the default browser for HTTP and HTTPS"
         content: |
           Windows Registry Editor Version 5.00
@@ -34,11 +34,11 @@ script:
     - task:
         name: set_regedit_file
         description: "Set Firefox as the default browser for HTTP and HTTPS"
-        filename: $GAMEDIR/set_default_browser.reg
+        filename: $GAMEDIR/regedit_files/set_default_browser.reg
         prefix: $GAMEDIR/.wine
 
     - write_file:
-        file: $GAMEDIR/window_decoration.reg
+        file: $GAMEDIR/regedit_files/window_decoration.reg
         description: "Write Registry file to disable window decoration"
         content: |
           Windows Registry Editor Version 5.00
@@ -49,7 +49,7 @@ script:
     - task:
         name: set_regedit_file
         description: "Disable window decoration in winecfg"
-        filename: $GAMEDIR/window_decoration.reg
+        filename: $GAMEDIR/regedit_files/window_decoration.reg
         prefix: $GAMEDIR/.wine
 
     - task:
@@ -83,7 +83,7 @@ script:
         prefix: $GAMEDIR/.wine
 
     - write_file:
-        file: $GAMEDIR/set_holoearth_language_en.reg
+        file: $GAMEDIR/regedit_files/set_holoearth_language_en.reg
         description: "Write Registry file to set the language to english"
         content: |
           Windows Registry Editor Version 5.00
@@ -131,7 +131,7 @@ script:
     - task:
         name: set_regedit_file
         description: "Set holoearth language to english"
-        filename: $GAMEDIR/set_holoearth_language_en.reg
+        filename: $GAMEDIR/regedit_files/set_holoearth_language_en.reg
         prefix: $GAMEDIR/.wine
 
   wine:
