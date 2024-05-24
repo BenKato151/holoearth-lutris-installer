@@ -8,7 +8,7 @@ notes: "**IMPORTANT - READ BEFORE INSTALL**\r\n\
 \ firefox first. It should crash immediately - this is intended.\
 \ disable the checkbox and close the crash pop-up. This installer will continue.\r\n\
 \ - After the installation of the Holoearth Launcher, keep the checkbox enabled and start\
-\ the Holoearth Launcher.\r\nDownload the base game.\r\n\
+\ the Holoearth Launcher.\r\n - Download the base game.\r\n\
 \ - When finished, close the Holoearth Launcher and this installer will continue.\r\n\
 \ - Only after the installation complete message appears, you can start Holoearth from lutris.
 "
@@ -25,7 +25,6 @@ script:
     - firefox_installer_file:
         url: "https://download.mozilla.org/?product=firefox-esr-latest-ssl&os=win64&lang=en-US"
         filename: firefox_esr_installer.exe
-    - ucrtbase_dll: "N/A:Download that dll from \"https://de.dll-files.com/download/f0da14e390f0ccb58eaad34d9b309e4b/ucrtbase.dll.html?c=ZlFOUUpYR1RYVCtUNEljdWxJUUpGZz09\""
 
   installer:
     - write_file:
@@ -63,9 +62,9 @@ script:
 
     - task:
         name: winetricks
-        description: "Install japanese fonts, vkd3d and dxvk with Winetricks"
+        description: "Install japanese fonts, vkd3d, dxvk, ucrtbase2019 with Winetricks"
         prefix: $GAMEDIR/.wine
-        app: cjkfonts fakejapanese corefonts vkd3d dxvk1103
+        app: cjkfonts fakejapanese corefonts vkd3d dxvk1103 ucrtbase2019
 
     - task:
         name: wineexec
@@ -73,13 +72,6 @@ script:
         executable: firefox_installer_file
         prefix: $GAMEDIR/.wine
 
-    - extract:
-        file: $ucrtbase_dll
-        dst: $GAMEDIR/ucrtbase/
-
-    - copy:
-        src: $GAMEDIR/ucrtbase/ucrtbase.dll
-        dst: $GAMEDIR/.wine/drive_c/Program Files/Mozilla Firefox/
 
     - execute:
         description: "Create Temp directory to prevent Holoearth from crashing"
@@ -142,7 +134,3 @@ script:
         description: "Set holoearth language to english"
         filename: $GAMEDIR/regedit_files/set_holoearth_language_en.reg
         prefix: $GAMEDIR/.wine
-
-  wine:
-    overrides:
-      ucrtbase.dll: n,b
