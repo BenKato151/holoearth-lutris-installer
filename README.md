@@ -9,12 +9,13 @@ This lutris installer is the first one that I wrote, so please let me know any i
 Here are some points that I still struggle with:
 
 - Firefox
-	- Using firefox-esr and [placing ucrtbase.dll into it's installation directory with a wine override](https://appdb.winehq.org/objectManager.php?sClass=version&iId=41500#testdata), it won't crash anymore.
-	- **BUT** Somehow when opening a new profile, it will crash, so you have to let it start once, have it crash and then you can use it without any problems
-- Fonts in the installer
+	- Using firefox-esr and installing ucrtbase2019 with winetricks, it won't crash anymore.
+	- **BUT** Somehow when opening a new profile, it will crash, so you have to let it start once, have it crash and then you can use it without any problems.
+  		That's why I suggest to launch firefox once after installation.
+- Fonts in the installer. 
 	- Even with cjkfonts and fakejapanese, blank squares will show up during the installer process
 - Holoearth
-	- performance is not great and could also crash randomly
+	- performance is not great and could also crash randomly. Disabling Motion Blur and Cast Shadows seems to improve this
 	- english at boot: Success, but I am not really happy that I had to edit hex values for it xD If someone finds a better way to do that, pls let me know! :)
 - Documentation
 	- I plan to include a tutorial on how to navigate holoearth installation and first launch until the settings... maybe? 
