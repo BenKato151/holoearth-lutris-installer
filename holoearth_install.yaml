@@ -3,6 +3,15 @@ game_slug: holoearth-beta
 version: holoearth-installer
 slug: holoearth-beta
 runner: wine
+notes: "**IMPORTANT - READ BEFORE INSTALL**\r\n\
+\ - After the installation of firefox finished, keep the checkbox enabled and launch\
+\ firefox first. It should crash immediately - this is intended.\
+\ disable the checkbox and close the crash pop-up. This installer will continue.\r\n\
+\ - After the installation of the Holoearth Launcher, keep the checkbox enabled and start\
+\ the Holoearth Launcher.\r\nDownload the base game.\r\n\
+\ - When finished, close the Holoearth Launcher and this installer will continue.\r\n\
+\ - Only after the installation complete message appears, you can start Holoearth from lutris.
+"
 
 script:
   game:
@@ -78,7 +87,7 @@ script:
 
     - task:
         name: wineexec
-        description: "Run the Holoearth installer (After installation, don't start holoearth directly. Uncheck the box and let the installer finish. Then you can run it)"
+        description: "Run the Holoearth Launcher installer (Close after installation of the base game completed)"
         executable: holoearth_installer_file
         prefix: $GAMEDIR/.wine
 
