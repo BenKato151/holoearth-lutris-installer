@@ -19,6 +19,7 @@ script:
     arch: win64
     prefix: $GAMEDIR/.wine
     working_dir: $GAMEDIR/
+    dxvk: true
 
   files:
     - holoearth_installer_file: "https://cdn.holoearth.com/launcher/v1.4.0/1d466f71-79a7-46f2-a702-48bd5b5f4577/HoloearthSetup.exe"
@@ -62,9 +63,9 @@ script:
 
     - task:
         name: winetricks
-        description: "Install japanese fonts, vkd3d, dxvk, ucrtbase2019 with Winetricks"
+        description: "Install japanese fonts, ucrtbase2019 with Winetricks"
         prefix: $GAMEDIR/.wine
-        app: cjkfonts fakejapanese corefonts vkd3d dxvk1103 ucrtbase2019
+        app: cjkfonts fakejapanese corefonts ucrtbase2019
 
     - task:
         name: wineexec
