@@ -3,14 +3,13 @@ game_slug: holoearth-beta
 version: holoearth-installer
 slug: holoearth-beta
 runner: wine
-notes: "**IMPORTANT - READ BEFORE INSTALL**\r\n\
-\ - After the installation of firefox finished, keep the checkbox enabled and launch\
-\ firefox first. It should crash immediately - this is intended.\
-\ disable the checkbox and close the crash pop-up. This installer will continue.\r\n\
+notes: "IMPORTANT - READ BEFORE INSTALL\r\n\
+\ - After the installation of firefox finished, uncheck the checkbox since you don't need to launch firefox first.\r\n\
+\ This installer will continue.\r\n\
 \ - After the installation of the Holoearth Launcher, keep the checkbox enabled and start\
 \ the Holoearth Launcher.\r\n - Download the base game.\r\n\
 \ - When finished, close the Holoearth Launcher and this installer will continue.\r\n\
-\ - Only after the installation complete message appears, you can start Holoearth from lutris.
+\ - Only after the installation complete message of lutris appears, you can start Holoearth from lutris.
 "
 
 script:
@@ -62,13 +61,13 @@ script:
 
     - task:
         name: winetricks
-        description: "Install japanese fonts, ucrtbase2019 with Winetricks"
+        description: "Install japanese fonts and ucrtbase2019 with Winetricks"
         prefix: $GAMEDIR/.wine
         app: cjkfonts fakejapanese corefonts ucrtbase2019
 
     - task:
         name: wineexec
-        description: "Install Firefox (After the installation is completed, run it for the first time and let it crash, it has to crash once for it to work sadly)"
+        description: "Install Firefox (Uncheck the box after installation, you don't need to launch it)"
         executable: firefox_installer_file
         prefix: $GAMEDIR/.wine
 
@@ -78,7 +77,7 @@ script:
 
     - task:
         name: wineexec
-        description: "Run the Holoearth Launcher installer (Close after installation of the base game completed)"
+        description: "Run the Holoearth Launcher installer (Keep the checkbox enabled, this will start the launcher. Download the base game and after the installation, you can close it to continue this installation script)"
         executable: holoearth_installer_file
         prefix: $GAMEDIR/.wine
 
