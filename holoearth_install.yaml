@@ -19,7 +19,6 @@ script:
     arch: win64
     prefix: $GAMEDIR/.wine
     working_dir: $GAMEDIR/
-    dxvk: true
 
   files:
     - holoearth_installer_file: "https://cdn.holoearth.com/launcher/v1.4.0/1d466f71-79a7-46f2-a702-48bd5b5f4577/HoloearthSetup.exe"
