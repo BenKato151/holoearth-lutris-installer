@@ -72,7 +72,6 @@ script:
         executable: firefox_installer_file
         prefix: $GAMEDIR/.wine
 
-
     - execute:
         description: "Create Temp directory to prevent Holoearth from crashing"
         command: mkdir -p $GAMEDIR/.wine/drive_c/users/$(whoami)/AppData/Local/Temp
