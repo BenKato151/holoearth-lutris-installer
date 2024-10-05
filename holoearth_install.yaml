@@ -83,4 +83,4 @@ script:
 
   system:
     env:
-      DXVK_HUD: full
+      DXVK_HUD: ""
