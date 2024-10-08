@@ -7,19 +7,8 @@ This lutris installer is the first one that I wrote, so please let me know any i
 
 
 Here are some points that I still struggle with:
+- Under Wayland (atleast for me with KDE Plasma), the Holoearth Launcher will just be a black window.
+	- Starting Lutris with `PROTON_USE_WINED3D=1 lutris` works.
+	- After the Holoearth Launcher installed the base game, you will need to restart lutris once the Holoearth Launcher installs the base game without PROTON_USE_WINED3D, so just normally to get the game working
+- winetricks does not work with GE-Proton9-15 and I don't really know what to do with this.
 
-- Firefox
-	- Using a newer wine version than wine-ge-8.26 (which was set as a default for lutris - atleast for me), firefox won't crash anymore. Don't know why.
-- Fonts in the installer. 
-	- Even with cjkfonts and fakejapanese, blank squares will show up during the installer process
-- Holoearth
-	- performance is not great and could also crash randomly. Disabling Motion Blur and Cast Shadows seems to improve this
-	- english at boot: Success, but I am not really happy that I had to edit hex values for it xD If someone finds a better way to do that, pls let me know! :)
-- Documentation
-	- I plan to include a tutorial on how to navigate holoearth installation and first launch until the settings... maybe? 
-
-
-Some of the steps that I have written in here, do come from [this reddit comment](https://www.reddit.com/r/Hololive/comments/14rznad/comment/jqwtwm1/) a few months ago, where we did some first steps into getting holoearth working on linux.
-Thanks to the author of that comment. He also suggested that just forcing english on the first launch would not be the best idea.
-So I used the input menu to give everyone a choice - it can still be changed in the game settings though :D
-Since the newest update, I got back into it and wanted to automate the installation process a bit xD
