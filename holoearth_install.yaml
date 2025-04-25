@@ -3,16 +3,7 @@ game_slug: holoearth-beta
 version: holoearth-installer
 slug: holoearth-beta
 runner: wine
-version: GE-Proton9-15
-notes: "IMPORTANT - READ BEFORE INSTALL\r\n\
-\ - After the installation of the Holoearth Launcher, keep the checkbox enabled and start\
-\ the Holoearth Launcher.\r\n - Download the base game.\r\n\
-\ - When finished, close the Holoearth Launcher and this installer will continue.\r\n\
-\ - Only after the installation complete message of lutris appears, you can start Holoearth from lutris.\r\n\
-\ - If under Wayland, it may be nessesary to start lutris with WINED3D if the launcher starts with a black screen:\r\n\
-\   \t $ PROTON_USE_WINED3D=1 lutris\r\n\
-\   Once the holoearth Launcher finished downloading the base game, you will need to restart lutris without WINED3D, so just normally
-"
+
 
 script:
   game:
@@ -22,7 +13,7 @@ script:
     working_dir: $GAMEDIR/
 
   files:
-    - holoearth_installer_file: "https://cdn.holoearth.com/launcher/v1.4.0/1d466f71-79a7-46f2-a702-48bd5b5f4577/HoloearthSetup.exe"
+    - holoearth_installer_file: "https://cdn.holoearth.com/launcher/v1.5.0/09a7cbbd-3c6c-486e-a0ef-db0a6948f5e6/HoloearthSetup.exe"
 
   installer:
     - task:

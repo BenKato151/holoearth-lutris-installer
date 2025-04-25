@@ -7,8 +7,10 @@ This lutris installer is the first one that I wrote, so please let me know any i
 
 
 Here are some points that I still struggle with:
-- Under Wayland (atleast for me with KDE Plasma), the Holoearth Launcher will just be a black window.
-	- Starting Lutris with `PROTON_USE_WINED3D=1 lutris` works.
-	- After the Holoearth Launcher installed the base game, you will need to restart lutris once the Holoearth Launcher installs the base game without PROTON_USE_WINED3D, so just normally to get the game working
-- winetricks does not work with GE-Proton9-15 and I don't really know what to do with this.
+- A lot has changed since I've last visited Holoearth and with it's 1.0.0 release, the Holoearth devs improved a lot and I don't need to change anything at all anymore.
+
+It just works out of the box on Wayland using UMU-Proton (Latest).
+They also included an english version for the installer and it starts with english first.
+So there is nothing to configure.
+Have fun with Holoearth :D
 
