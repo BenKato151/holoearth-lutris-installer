@@ -1,27 +1,24 @@
-name: Holoearth Beta
-game_slug: holoearth-beta
-version: holoearth-installer
-slug: holoearth-beta
+name: Holoearth
+game_slug: holoearth
+slug: holoearth
 runner: wine
+version: holoearth-installer
+
 
 
 script:
   game:
-    exe: $GAMEDIR/.wine/drive_c/Program Files/COVER corp/HoloearthApps/Holoearth/Holoearth.exe
+    exe: $GAMEDIR/.wine/drive_c/users/steamuser/AppData/Roaming/COVER corp/Holoearth Launcher/Launcher.exe
     arch: win64
     prefix: $GAMEDIR/.wine
     working_dir: $GAMEDIR/
 
   files:
-    - holoearth_installer_file: "https://cdn.holoearth.com/launcher/v1.5.0/09a7cbbd-3c6c-486e-a0ef-db0a6948f5e6/HoloearthSetup.exe"
+    - holoearth_installer_file: "https://cdn.holoearth.com/launcher/v1.6.0/a8b2b6a2-2e3e-429a-a335-bee833bc0a3f/HoloearthSetup.exe"
 
   installer:
     - task:
         name: wineexec
-        description: "Run the Holoearth Launcher installer (Keep the checkbox enabled, this will start the launcher. Download the base game and after the installation, you can close it to continue this installation script)"
+        description: "Run the Holoearth Launcher installer. After the launcher is installed, uncheck the checkbox and don't run the launcher and this script will finish. After this you can run the launcher and install the base game. WINE Version: >=GE-Proton10 RECOMMENDED"
         executable: holoearth_installer_file
         prefix: $GAMEDIR/.wine
-
-  system:
-    env:
-      DXVK_HUD: ""
